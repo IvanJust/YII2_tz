@@ -47,8 +47,8 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '' => 'order/index',
-                'order/export' => 'order/export',
+                '' => 'site/index',
+                'order' => 'order/index',
             ],
         ],
     ],

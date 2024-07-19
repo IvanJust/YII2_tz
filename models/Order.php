@@ -18,6 +18,9 @@ use yii\base\Model;
  */
 class Order extends \yii\db\ActiveRecord
 {
+    public $date_from; // Добавляем свойство date_from
+    public $date_to; // Добавляем свойство date_to
+    public $seller_id;
     /**
      * {@inheritdoc}
      */
@@ -35,7 +38,7 @@ class Order extends \yii\db\ActiveRecord
             [['seller_id', 'date_sold', 'qty', 'order_sum'], 'required'],
             [['seller_id', 'qty', 'order_sum'], 'integer'],
             [['date_sold'], 'safe'],
-            [['seller_id'], 'exist', 'skipOnError' => true, 'targetClass' => Seller::className(), 'targetAttribute' => ['seller_id' => 'id']],
+            [['seller_id'], 'exist', 'skipOnError' => true, 'targetClass' => Seller::class, 'targetAttribute' => ['seller_id' => 'id']],
         ];
     }
 
@@ -59,7 +62,7 @@ class Order extends \yii\db\ActiveRecord
      * @return \yii\db\ActiveQuery
      */
     public function getSeller()
-    {
-        return $this->hasOne(Seller::className(), ['id' => 'seller_id']);
-    }
+{
+    return $this->hasOne(Seller::class, ['id' => 'seller_id']);
+}
 }

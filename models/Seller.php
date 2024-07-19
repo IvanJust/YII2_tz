@@ -51,6 +51,6 @@ class Seller extends \yii\db\ActiveRecord
      */
     public function getOrders()
     {
-        return $this->hasMany(Order::className(), ['seller_id' => 'id']);
+        return $this->hasMany(Order::class, ['seller_id' => 'id']);
     }
 }
